@@ -337,11 +337,11 @@
 		
 		#id4 > .body > div , #id3 > .body > div  {
 			width:42%;
-			height: 200px;
+			height: 120px;
 			float:right;
 			background:#fff;
 			margin: 0 2%;
-			margin-top:15px;
+			margin-top:30px;
 			padding: 2%;
 			
 			/* http://www.cssmatic.com/box-shadow */
@@ -356,14 +356,14 @@
 			text-transform: uppercase;
 			text-align: left;
 			
-			padding-bottom:20px;
+			padding-bottom:7px;
 		}	
 		
 		hr {
 		     color: none;
 		     background: none; 
 		     width: 0; 
-		     height: 0px;
+		     height: 0;
 			 border: 0;
 		}
 		
@@ -377,15 +377,15 @@
 		
 		#id4 hr {
 			
-			margin-bottom: 55px;
+			margin-bottom: 12px;
 		}
 		
 		#id3 .prediction {
-			padding-top:20px;
-			height: 180px;
-			font-size:32px;
+			padding-top:8px;
+			height: 100px;
+			font-size:26px;
 			text-align: left;
-			color:	#1000D0;		
+			color:	#1000D0;
 		}	
 		
 		.home_images {
@@ -1505,7 +1505,9 @@
         /********* START *********/
 		
 		page_showing = '#id1';
-			
+		
+		page_showing = '#id4';
+		
 		$('body').find(page_showing).fadeIn("slow", function() {  $(this).removeClass("hide"); });
 		
 		initialiseDormant();
