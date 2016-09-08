@@ -1,0 +1,1489 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="author" content="David Kinross">
+        <meta name="robots" content="noindex">
+        <meta name="googlebot" content="noindex">
+        
+		
+		<title>Future Londoners</title>
+
+        <link rel="stylesheet" href="assets/libraries/jquery-ui.css">
+        <link rel="stylesheet" href="assets/libraries/jquery-ui-slider-pips.css">
+		
+        <link rel="stylesheet" href="assets/css/slider.css">
+		
+        <style>
+		
+		/*
+		
+		@font-face {
+		    font-family: 'Px_Grotesk_Regular';
+		    src: url('fonts/Px_Grotesk_Regular.eot'), url('fonts/Px_Grotesk_Regular.ttf') format('truetype'), url('fonts/Px_Grotesk_Regular.svg') format('svg');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		
+		*/	
+		
+		
+		* {
+			-moz-user-select: none; /* Firefox */
+			-ms-user-select: none; /* Internet Explorer */
+			-khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+			-webkit-user-select: none; /* Chrome, Safari, and Opera */
+			-webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+		}
+
+		*:focus {
+			outline: none;
+		}
+		
+		*{
+			color:#fff;
+		    font-family:'Px_Grotesk_Regular';
+			font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; 
+			padding:0;
+			margin:0;
+		}			
+			  
+        .hide {
+            display: none;
+        }
+		
+		#content {
+			position:relative;
+		}
+		
+		.page {
+			position:absolute;
+		}
+		
+		a.button {
+			cursor: pointer;
+			
+			background: #C8F600;
+			color: #1000D0;
+			padding:5px;
+			
+		}
+		
+		body , #content{
+		}
+		
+		.screen_saver , .button , .countdown , .intro , p , h1 , h2 , h3 {
+			text-align: center;
+		}
+
+		#content  {
+			margin: auto;		
+		}
+		
+		.page {
+			background:#1000D0; /* For browsers that do not support gradients */
+			
+		    background: -webkit-linear-gradient(#13139E, #2E23F9); /* For Safari 5.1 to 6.0 */
+		    background: -o-linear-gradient(#13139E, #2E23F9); /* For Opera 11.1 to 12.0 */
+		    background: -moz-linear-gradient(#13139E, #2E23F9); /* For Firefox 3.6 to 15 */
+		    background: linear-gradient(#13139E, #2E23F9); /* Standard syntax (must be last) */			
+					
+			
+			
+			width:80%;
+			padding: 0 10%;
+		}
+		
+		.button_restart {
+			float:right;
+		}
+		.button_info {
+			float:left;
+		}		
+		
+		.footer .button  {
+			align-items: center;
+		}
+		
+		
+		#id2 div.slider span.ui-slider-handle, div.slider span.ui-state-default, div.slider span.ui-corner-all, div.slider span.ui-state-active {
+			cursor: pointer;
+			/* http://www.cssmatic.com/box-shadow */
+			-webkit-box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
+			-moz-box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
+			box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
+			width: 43px;
+			height: 43px;
+		}
+		
+		div.slider.ui-slider {
+			margin-top:30px;
+		}		
+				
+		#id2 div.slider span.ui-slider-handle, div.slider span.ui-state-default, div.slider span.ui-corner-all, div.slider span.ui-state-active {
+			background: #0F22FF;
+			border: #0F22FF;
+            background-image:url(icons/icon-drag-white.svg);
+			
+		}
+		
+		.slider .ui-slider-handle {
+			top: -15px;
+		}
+		
+		#id4 div.slider span.ui-slider-handle, div.slider span.ui-state-default, div.slider span.ui-corner-all, div.slider span.ui-state-active {
+            background: #fff;
+			border: #fff;
+            background-image:url(icons/icon-drag-blue.svg);
+		}
+				
+		#id2 .slider.ui-slider {
+            background: #18178A;
+		}
+		
+		.slider.ui-slider {
+			margin-right:5%;
+			margin-left:5%;
+		}		
+		
+		#id4 .slider.ui-slider {
+            background: #DDDCE8;
+		}			
+		
+		#id0 .footer {
+			width:60%;
+			margin: auto;
+			float: none;
+			padding: 0 20%;
+		}
+		
+		#id0 {
+			background:#000;
+		}	
+		
+		#id1 .button_next , #id2 .button_next , #id3 .button_next, #id4 .button_back, #id5 .footer .button_restart , .button_close {
+			display:block;
+			margin: auto;
+		}
+		
+		.button_close {
+			width:120px;
+		}
+		
+		#id1 .button_next {
+			width:200px;
+		}					
+
+		#id2 .button_next {
+			width:260px;
+		}
+		
+		#id3 .footer  {
+			width:40%;
+			margin: auto; 
+			padding: 0 30%;
+		}
+		
+		#id3 .footer .button_next , #id0 .footer .button_next {
+			float:right;
+			padding:0 35px;
+		}
+		
+		#id3 .footer .button_skip_to_end , #id0 .footer .button_remove  {
+			float:left;
+			padding:0 35px;
+		}
+		
+		#id4 .button_back {
+			width:300px;
+		}
+		
+		#id5 .footer .button_restart {
+			float: none;
+			width:340px;
+		}
+		
+		#id6 {
+			background:white;
+			z-index: 10000;
+		}
+		
+		#id0 {
+			background:black;
+			z-index: 11000;
+		}		
+		
+		
+		#id6 * {
+			color: #FF5418;
+		}
+		
+		#id0 .button {
+			background: #fff;
+			color: #000;
+		}		
+		
+		#id6 .button_close {
+			background: #FF5418;
+			color: #fff; 
+		}
+		
+		html, body , #content , #content .page {
+		    height: 100%;
+		}			
+				
+		.header {
+		    height: 70px;
+		    /* background: grey; */
+		}
+		
+
+		.footer {
+			
+		    height: 200px;
+			position:fixed;
+			width:100%;
+			left:0px;
+			bottom:0px;	
+		    /* background-color: pink; */
+					
+		}
+		
+		#id3 , #id4 {
+			background: #F3F2FD;
+		}
+		
+		#id3 * , #id4 * {
+			color:#595396;
+		}		
+		
+		#id3 .button , #id4 .button {
+			background: #1000D0;
+			color: #fff;
+		}
+		
+		#id5 .button {
+			background: #fff;
+			color: #1000D0;
+		}
+		
+		h1 {
+			font-size:46px;
+		}
+		
+		#id0 h1 , #id5 h1 , #id6 h1   {
+			width:60%;
+			padding:0 20%;
+			font-size:70px;
+		}	
+		
+		#id1 h1   {
+			font-size:80px;
+		}			
+		
+		 #id6 p {
+			width:70%;
+			padding:0 15%;
+			font-size:24px;
+		}
+		
+		.footer .button {
+			font-size:17px;
+			text-transform: uppercase;
+			line-height: 400%;
+		}		
+		
+		#id0 .button_restart {
+			float:right;
+			padding:0 35px;
+		}
+		
+		
+		#id3 .body div.intro , #id4 .body div.intro   {
+			width:100%;
+			height: auto;
+			margin-bottom: 30px;
+			background:none;
+			margin:0;
+			padding: 0;
+			
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;					
+		}		
+		
+		
+		#id4 > .body > div , #id3 > .body > div  {
+			width:42%;
+			height: 200px;
+			float:right;
+			background:#fff;
+			margin: 0 2%;
+			margin-top:15px;
+			padding: 2%;
+			
+			/* http://www.cssmatic.com/box-shadow */
+			-webkit-box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
+			-moz-box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
+			box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);			
+			
+		}
+		
+		#id4 h3 , #id3 h3  {
+			font-size:14px;
+			text-transform: uppercase;
+			text-align: left;
+			
+			padding-bottom:20px;
+		}	
+		
+		hr {
+		     color: none;
+		     background: none; 
+		     width: 0; 
+		     height: 0px;
+			 border: 0;
+		}
+		
+		#id4 hr , #id3 hr  {
+		     color: #F2F1F7;
+		     background: #F2F1F7; 
+		     width: 100%; 
+		     height: 2px;
+			 border: 2px;
+		}					
+		
+		#id4 hr {
+			
+			margin-bottom: 55px;
+		}
+		
+		#id3 .prediction {
+			padding-top:20px;
+			height: 180px;
+			font-size:32px;
+			text-align: left;
+			color:	#1000D0;		
+		}	
+		
+		.home_images {
+			width:90px;
+			height:90px
+		}
+		
+        img.home_images {
+            display:block;
+            margin-left: auto;
+            margin-right: auto;	
+			margin-top:55px;	
+			
+        }
+		
+		#id1 h2 {
+			font-size:17px;
+			color:#9F9BEC;
+			text-transform: uppercase;
+			margin-top:165px;	
+			
+		}	
+		
+		
+		#id1 .circle {
+			width: 250px;
+			height: 250px;
+			background: #151CD1;
+			border-radius: 200px;
+            display:block;
+            margin-left: auto;
+            margin-right: auto;				
+		}
+		
+		#id1 .intro {
+			font-size:32px;
+			color:#D2CDFA;
+		}
+		
+		#id1 .animation {
+			margin-top:20px;
+			position:relative;
+		}
+		
+        #id1 .animation * {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }	
+		
+		#id1 h1 {
+			padding-top:340px;
+			padding-bottom:20px;
+		}
+		
+		div.icon_info {
+            width: 28px;
+            height:28px;
+            background-image:url(icons/icon-info-black.svg);
+			border: none;
+		}
+		
+		div.icon_restart {
+            width: 28px;
+            height:28px;
+            background-image:url(icons/icon-restart-black.svg);
+			border: none;
+		}
+		
+		#id2 div.icon_restart {
+            background-image:url(icons/icon-restart-white.svg);
+			border: none;
+		}		
+		
+		#id2 div.icon_info {
+            background-image:url(icons/icon-info-white.svg);
+			border: none;
+		}
+		
+		.nav > div > * {
+			
+			display:block;
+			margin: 0 auto;
+			
+		}
+		
+		.nav > div {
+			cursor: pointer;
+			margin-top: 15px;
+		}
+		
+		.nav > div > a {
+			font-size:12px;
+			color:#D2CDFA;
+			text-transform: uppercase;
+			background:none;
+		}
+		
+		#id2 .nav a {
+			padding-top:10px;
+			font-size:12px;
+			text-transform: uppercase;
+			background:none;
+		}
+		
+		#id3 .nav a , #id4 .nav a {
+			padding-top:10px;
+			font-size:12px;
+			color:#A6A3C8;
+			text-transform: uppercase;
+			background:none;
+		}
+		
+		.small-labels {
+			display:inline-block;
+			width:50%;
+		}
+		
+        .text-align-right {
+        	 text-align: right;
+        }
+			
+			
+			
+        .RRR-back {
+        	
+            position:absolute;
+            left:15%;
+            top:400px;
+	
+			text-transform: uppercase;
+			font-size:34px;
+			text-align: center;
+			vertical-align:middle;
+			width:200px;
+			margin: -100;
+			
+            /* Safari */
+            -webkit-transform: rotate(-90deg);
+            /* Firefox */
+            -moz-transform: rotate(-90deg);
+            /* IE */
+            -ms-transform: rotate(-90deg);
+            /* Opera */
+            -o-transform: rotate(-90deg);
+            /* Internet Explorer */
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			
+        }
+		
+        .RRR-forward {
+        	
+            position:absolute;
+            right:15%;
+            top:400px;
+	
+			text-transform: uppercase;
+			font-size:34px;
+			text-align: center;
+			vertical-align:middle;
+			width:200px;
+			margin: -100;
+						
+            /* Safari */
+            -webkit-transform: rotate(90deg);
+            /* Firefox */
+            -moz-transform: rotate(90deg);
+            /* IE */
+            -ms-transform: rotate(90deg);
+            /* Opera */
+            -o-transform: rotate(90deg);
+            /* Internet Explorer */
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+			
+        }
+		
+
+		#id2 .body {
+			display:inline-block;
+			width:80%;
+			margin:0 10%;
+		}						
+		 
+        </style>
+    </head>
+    <body>
+    	
+        <div id="content">
+        </div>
+        
+        <script src="assets/libraries/jquery-2.0.0.min.js">
+        </script>
+		
+        <script src="assets/libraries/jquery-ui.js">
+        </script>
+		
+        <script src="assets/libraries/jquery-ui-slider-pips.js">
+        </script>
+
+		<script>
+			
+		var testing = false; 
+		//testing = true;
+		
+		var defaultCountdown = 15;
+			
+        if (testing == true) {
+            defaultCountdown = 3;
+        }  			
+			
+		var defaultDormant = 90000;			
+						
+        if (testing == true) {
+            defaultDormant = 3;
+        }       
+				
+		var defaultAnimation = 4;
+		
+        if (testing == true) {
+            defaultAnimation = 2; 
+        }     			
+			
+		var page_showing = '#id1';
+        
+        function set_up_page_data( headline_ , intro_ , next_ , back_ , header_ , animations_ , questions_ , slider_ , clean_screen_ , countdown_ , restart_ , remove_ , skip_to_end_ , body_copy_ , close_ ){
+        
+            
+            var a = {};
+            
+          	a.headline = headline_ || "";
+			
+          	a.intro = intro_ || "";
+			
+          	a.next = next_ || "";
+			
+          	a.back = back_ || "";
+			
+          	a.header = header_ || "";
+			
+          	a.animations = animations_ || [];
+			
+          	a.questions = questions_ || [];
+			
+          	a.slider = slider_ || [];
+			
+			a.clean_screen = clean_screen_ || false;
+			
+			a.countdown = countdown_ || [];
+			
+          	a.restart = restart_ || "";
+			
+          	a.remove = remove_ || "";
+			
+			a.skip_to_end = skip_to_end_ || "";	
+			
+          	a.body_copy = body_copy_ || "";
+			
+			a.close = close_ || "";				
+			
+            return a
+            
+        }
+
+ 
+
+
+		
+			
+		/********* WORDS start *********/	
+			
+			
+		var header_0 , headline_0 , restart_0 , remove_0 ;
+        
+        header_0 = "Hello?";
+        
+        headline_0 = "Are you a new viewer?";
+        
+        restart_0 = "Yes, start at the beginning";
+			
+        remove_0 = "No, let's continue";
+		
+		var page_0_data = set_up_page_data( headline_0 , "" , "" , "" , header_0 , [] , [] , [] , true , [] , restart_0 , remove_0 , "" , "" , ""  );
+					
+			
+		
+		var  headline_1 , intro_1 , next_1 , animations ;
+		
+        
+        headline_1 = "Future Londoners";
+        
+        intro_1 = "We'll predict your future after 4 questions";
+        
+        next_1 = "Let's do this";
+		
+		animations_1 = ["Finances","Risk","Diet"];
+		
+		var page_1_data = set_up_page_data( headline_1 , intro_1 , next_1 , "" , "" , animations_1 , [] , [] , true , [] , "" , "" , "" , "" , ""  );
+		
+		
+		
+		var headline_2 , intro_2 , questions_2 , slider_2 , next_2 ;
+        
+        headline_2 = "As a child you would...";
+        
+        intro_2 = "";
+        
+		
+        questions_2 = [
+		"...wait until someone paused before you spoke" ,
+		"...sit and focus on an activity for a long time" ,
+		"...avoid tasks you found difficult" ,
+		"...throw tantrums!"
+		];
+        
+        slider_2 = [["wrong", "right"]];		
+			
+        next_2 = "Predict my future!";
+		
+		var page_2_data = set_up_page_data( headline_2 , intro_2 , next_2 , "" , "" , [] , questions_2 , slider_2 , false , [] , "" , "" , "" , "" , ""  );
+		
+		
+				
+		
+		var headline_3 , intro_3 , back_3 , next_3 , headings_3 ;
+        
+        headline_3 = "We predict";
+        
+        intro_3 = "At age 55 your attitudes will be...";
+        
+		next_3 = 'Failed it!';
+		
+        skip_to_end_3 = "Nailed it!";
+		
+		
+        headings_3 = [
+		"Salary" ,
+		"Diet" ,
+		"Taking risks" ,
+		"Money management"
+		];			
+		
+		var page_3_data = set_up_page_data( headline_3 , intro_3 , next_3 , "" , "" , [] , headings_3 , [] , false , [] , "" , "" , skip_to_end_3 , "" , ""  );
+		
+				
+		
+		
+		var headline_4 , intro_4 , next_4  ;
+        
+        headline_4 = "Your hunches";
+        
+        intro_4 = "At age 55 your life style will be...";
+        
+        back_4 = "Show the new predictions";	
+		
+        questions_4 = [
+		"Salary" ,
+		"Diet" ,
+		"Taking risks" ,
+		"Money management"
+		];
+        
+        slider_4 = [ [ "Ferrero Rocher","Ferrari" ],[ "Fast and furious","Body = temple" ],[ "Lion tamer","Accountant" ],[ "Job centre","Black card" ] ];		
+		
+
+		
+		var page_4_data = set_up_page_data( headline_4 , intro_4 , "" , back_4 , "" , [] , questions_4 , slider_4  , false , [] , "" , "" , "" , "" , ""  );
+		
+		
+
+		var headline_5 , intro_5 , restart_5 ;
+        
+        headline_5 = "That's all folks, enjoy the future!";
+        
+        countdown_5 = [ "Restarting in " , " seconds..." ];
+        
+        restart_5 = "Let's get this party started";
+		
+		var page_5_data = set_up_page_data( headline_5 , "" , "" , "" , "" , [] , [] , [] , true , countdown_5 , restart_5 , "" , "" , "" , ""  );
+
+
+        
+        
+
+		var headline_info , intro_info ;
+		
+        button_info = "info";
+        
+        headline_info = "What's this all about then?";
+        
+        intro_info = "Children are the future. We've taken inspiration from a groundbreaking study which observed children's behaviours, then followed them to adulthood to see how they turned out. The results showed a remarkable correlation between self-control and overall success as an adult. The model can make predictions about your salary, eating habits and ability to take risks.";
+
+        close_info = "Got it!";
+		
+		var page_6_data = set_up_page_data( headline_info , "" , "" , "" , "" , [] , [] , [] , true , [] , "" , "" , "" , intro_info , close_info );
+		
+
+		button_restart = "restart";
+
+
+        var answers = [
+		// Salary:
+		[
+		"Money's too tight to mention." ,
+		"On the road to success, but it's a long road." ,
+		"I earn a fair wage." ,
+		"Big house, mortgage paid, Porsche on the drive." ,
+		"Donald Trump delivers my papers in the morning and I don't even tip him."
+		],
+        // Diet:
+		[
+		"I have a food challenge named after me." ,
+		"Bigmacs for breakfast." ,
+		"I know my way round a fruit smoothy." ,
+		"Health is wealth." ,
+		"I know the macronutrient breakdown of every Tesco item by memory." 
+		],
+        // Taking risks:
+		[
+		"All in. Every time." ,
+		"He who dares, wins." ,
+		"Heads or tails?" ,
+		"I take calculated risks." ,
+		"I worry when crossing a road."
+		],
+        // Money management:
+		[
+		"So tight I only breathe in." ,
+		"A penny saved is a penny earned." ,
+		"Look after the pennies and the pounds will look after themselves." ,
+		"Spend it if you've got it." ,
+		"Spend it like it's going out of fashion." , ""
+		]];
+        
+
+			
+			
+        /********* WORDS end *********/
+	
+			
+        /********* ADDING WORDS start *********/
+			
+			
+		function draw_a_page(data, id){
+			
+			var content = "";
+			content += '<div class="header">';
+          	if (!data.clean_screen ){
+				
+					content += '<div class="nav">';
+					
+						content += '<div class="button_info">';
+							content += '<div class="icon_info"></div>';
+							content += '<a class="button">' + button_info + '</a>';
+						content += '</div>';
+						
+						content += '<div class="button_restart">';
+							content += '<div class="icon_restart"></div>';
+							content += '<a class="button">' + button_restart + '</a>';
+						content += '</div>';
+						
+					content += '</div>';
+						
+			};
+			
+			content += '</div>';
+			
+            
+            if (data.slider.length == 1) {
+				content += '<div class="side-bit">';
+                content += '<div class="RRR-back">' + data.slider[0][0] + '</div>';
+				content += '</div>';
+            }			
+			
+			
+			content += '<div class="body">';
+			
+				if (data.animations.length) {
+					
+					content += '<div class="animations">';
+					
+					for (var i = 0; i < data.animations.length; i++) {
+					
+						content += '<div class="animation">';
+							content += '<div class="circle"></div>';
+							content += '<img class="home_images" src="icons/icon-' + data.animations[i] + '.svg" >';
+							content += '<h2>' + data.animations[i] + '</h2>';
+							
+						content += '</div>';
+						
+					}
+							
+					content += '</div>';
+					
+				}
+				
+				
+	          	if (data.header != "") {
+					content += '<div class="screen_saver">' + data.header + '</div>';
+				};
+				
+	          	if (data.headline != ""){
+					content += '<h1>' + data.headline + '</h1>';
+				};
+				
+	          	if (data.intro != ""){
+					content += '<div class="intro">' + data.intro + '</div>';
+				};
+	
+			
+	          	if (data.countdown.length) {
+					content += '<div class="countdown">' + data.countdown[0] + defaultCountdown + data.countdown[1] + '</div>';	 		
+				}
+				
+				if (data.body_copy != ""){
+					
+					content += '<p>' + data.body_copy + '</p>';
+				}
+				
+	          	if (data.questions.length) {
+				
+
+					for(var i = 0 ; i < data.questions.length ; i++){
+						
+						content += '<div>';
+						content += '<h3>' + data.questions[i] + '</h3><hr>';
+						
+						if (data.slider.length > 0) {
+							
+							
+							if (data.slider.length > 1) {
+							content += '<div class="small-labels">' + data.slider[i][0] + '</div><div class="small-labels text-align-right">' + data.slider[i][1] + '</div>';
+							}
+							
+						
+							content += '<div class="slider"></div>';
+							
+						} else {
+							
+							// predictions
+							
+							content += '<div class="prediction_container"><p class="prediction"></p></div>';
+							
+						}
+						
+						content += '</div>';
+						//slider
+						
+					}
+					
+					
+				
+				}
+
+		
+			content += '</div>';	
+			
+            
+            if (data.slider.length == 1) {
+				content += '<div class="side-bit">';
+                content += '<div class="RRR-forward">' + data.slider[0][1] + '</div>';
+				content += '</div>';				
+            }
+
+			
+					
+
+			var number_of_footer_buttons = 0;
+
+			content += '<div class="footer">';
+			
+			
+				if (data.close != ""){
+					
+					content += '<a class="button button_close">' + data.close + '</a>';
+				}			
+			
+		        if (data.back != "") {
+					content += '<a class="button button_back">' + data.back + '</a>';
+					number_of_footer_buttons++;
+				}		
+				
+		        if (data.skip_to_end != "") {
+					content += '<a class="button button_skip_to_end">' + data.skip_to_end + '</a>';
+					number_of_footer_buttons++;
+				}						
+					
+		        if (data.next != "") {
+					content += '<a class="button button_next">' + data.next + '</a>';
+					number_of_footer_buttons++;
+				}
+				
+		        if (data.restart != "") {
+					content += '<a class="button button_restart">' + data.restart + '</a>';
+					number_of_footer_buttons++;
+				}			
+					
+		        if (data.remove != "") {
+					content += '<a class="button button_remove">' + data.remove + '</a>';
+					number_of_footer_buttons++;
+				}				
+				
+			content += '</div>';			
+						
+			$( "#content" ).append( "<div class='page hide' id='id" + id  + "'>" + content  +"</div>" );
+			
+		}
+		
+		var pageNumber = 0;
+	
+		draw_a_page(page_0_data , pageNumber);
+		
+		pageNumber++;
+		
+		draw_a_page(page_1_data, pageNumber);
+		
+		pageNumber++;
+		
+		draw_a_page(page_2_data, pageNumber);
+		
+		pageNumber++;
+		
+		draw_a_page(page_3_data, pageNumber);
+		
+		pageNumber++;
+		
+		draw_a_page(page_4_data, pageNumber);
+		
+		pageNumber++;
+		
+		draw_a_page(page_5_data, pageNumber);
+				
+		pageNumber++;
+		
+		draw_a_page(page_6_data, pageNumber);
+				
+		
+
+
+		
+        /********* ADDING WORDS end *********/
+		
+		
+		
+		
+		
+        /********* INTERVAL TIMES start *********/
+		
+		// Countdown
+		
+		var numberCountdown;
+		
+        var intervalCountdown;
+		
+        function initialiseCountdown(){
+			numberCountdown = defaultCountdown;
+            intervalCountdown = setInterval(function(){ 
+                timerCountdown()
+            }, 1000);
+        }
+        
+        function timerCountdown(){
+            
+			numberCountdown = numberCountdown - 1;
+			
+			$('#id5').find('.countdown').text( page_5_data.countdown[0] + numberCountdown + page_5_data.countdown[1] );
+			
+			if(numberCountdown < 1){
+				stopCountdown();
+				
+				$(".page").fadeOut("slow", function() { $(this).addClass("hide"); });
+				
+				$("#id1").fadeIn("slow", function() {  $(this).removeClass("hide"); });	
+				
+				page_showing = '#id1';
+				
+				initialiseAnimation();
+				
+				$(".slider").slider({
+	            	value: 2
+	        	});				
+				
+
+				
+			}
+
+        }
+        
+        function stopCountdown(){ 
+            clearInterval(intervalCountdown);
+			$('#id5').find('.countdown').text( page_5_data.countdown[0] + defaultCountdown + page_5_data.countdown[1] ); 
+			
+        }
+		
+		
+		// Dormant
+		
+		var numberDormant;
+		
+        var intervalDormant;
+		
+        function initialiseDormant(){
+			numberDormant = defaultDormant;
+            intervalDormant = setInterval(function(){ 
+                timerDormant();
+            }, 1000);
+        }
+        
+        function timerDormant(){
+            
+			numberDormant = numberDormant - 1;
+			
+			if(numberDormant == 0){
+				// show dormant
+				if(page_showing != '#id1'){
+					
+					
+					$('#id0').fadeIn("slow", function() {  $(this).removeClass("hide"); });
+
+					$(page_showing).fadeOut("slow", function() { $(this).addClass("hide"); });
+					
+				}
+			}
+			
+			var wait_till_restart = 0 - (60 * 5);
+			
+	        if (testing == true) {
+	            wait_till_restart = -10;
+	        }  
+			
+			if(numberDormant < wait_till_restart ){
+				
+				// go to restart
+				// hide dormant
+				
+				if(page_showing != '#id1'){
+				
+					$('#id0').fadeOut("slow", function() { $(this).addClass("hide"); });	
+					$(".page").fadeOut("slow", function() { $(this).addClass("hide"); });
+					$("#id1").fadeIn("slow", function() {  $(this).removeClass("hide"); });	
+					
+					page_showing = '#id1';					
+					
+					initialiseAnimation();
+					
+					$(".slider").slider({
+		            	value: 2
+		        	});					
+					
+					
+				}
+				
+			}			
+			
+			
+
+        }
+        
+        function stopDormant(){ 
+            //clearInterval(intervalDormant);
+        }
+		
+		
+		// Animation
+		
+		var numberAnimation , arrayPointAnimation = 0;;
+		
+        var intervalAnimation;
+		
+        function initialiseAnimation(){
+			numberAnimation = defaultAnimation;
+            intervalAnimation = setInterval(function(){ 
+                timerAnimation()
+            }, 1000);
+        }
+        
+        function timerAnimation(){
+            
+			numberAnimation = numberAnimation - 1;
+			
+			if(numberAnimation < 1){
+				
+				numberAnimation = defaultAnimation;
+				
+				arrayPointAnimation++;
+				
+				if ( arrayPointAnimation == page_1_data.animations.length ){
+					arrayPointAnimation = 0;
+				}
+				
+				$(".animation").stop().fadeTo( "slow" , 0);
+				
+				$(".animation:eq(" + arrayPointAnimation  + ")").stop().fadeTo( "slow" , 1);
+			
+				
+				////alert('Animation');
+				
+			}
+
+        }
+        
+        function stopAnimation(){ 
+            clearInterval(intervalAnimation);
+        }
+		
+				
+		
+		
+		
+		
+		
+		
+        /********* INTERVAL TIMES end *********/
+		
+		
+        /********* SLIDERS start *********/
+		
+		var labels_ = [];
+		
+		for(var i = 0 ; i < page_2_data.slider.length ; i++){
+			labels_.push( page_2_data.slider[i] );
+		}
+		
+		for(var i = 0 ; i < page_4_data.slider.length ; i++){
+			labels_.push( page_4_data.slider[i] );
+		}
+		
+		var slider_number = 0;	
+		
+        $(".slider").each(function(){
+            $(this).slider({
+	            max: 4, 
+	            value: 2
+	        })
+			.slider("pips", {
+		        rest: "label",
+		        labels: ["","","","",""]
+			});
+			
+			slider_number++;
+			
+        });
+		
+		(function() {
+		    var ev = new $.Event('style'),
+		        orig = $.fn.css;
+		    $.fn.css = function() {
+		        $(this).trigger(ev);
+		        return orig.apply(this, arguments);
+		    }
+		})();		
+		
+        $('span.ui-slider-handle').bind('style', function(){
+			numberDormant = defaultDormant;
+        });	
+				
+		
+        /********* SLIDERS end *********/
+		
+		
+		
+        /********* predictions start *********/
+		
+		
+		function draw_prediction( page_id , words_array){
+			
+			var prediction_divs = $( "#id" + page_id  ).find('.prediction');
+			
+			var prediction_point = 0;
+			
+			$.each(prediction_divs, function( index, value ) {
+				
+				$(this).text( answers[   prediction_point   ][   words_array[prediction_point]   ] );
+				
+				prediction_point++;
+				
+			});
+					
+		}
+		
+		var page_2_slider_point = 0;
+					
+		
+		function algorithm_prediction(){
+			
+			// get *average* point off page 2
+			
+			var slider_divs = $( "#id2"  ).find( 'span.ui-slider-handle' );
+			
+			page_2_slider_point = 0;
+			
+			var iteration = 0;
+			
+			var negative_question = [ false , false , true , true ];
+						
+			
+			$.each(slider_divs, function( index, value ) {
+				
+				if(negative_question[iteration]){
+					
+					page_2_slider_point +=  ( 4 - (  Number( ( $(this)[0].style.left ).replace( "%" , "" ) ) / 25 ) )  ;
+					
+				} else {
+					
+					page_2_slider_point += (  Number( ( $(this)[0].style.left ).replace( "%" , "" ) ) / 25 )  ;
+					
+				}
+				
+				iteration++;
+				
+			});				
+			
+			page_2_slider_point = Math.round(page_2_slider_point / 4);
+			
+			draw_prediction ( 3, [ page_2_slider_point , page_2_slider_point , page_2_slider_point , page_2_slider_point ])
+			
+		}
+		
+		
+		function algorithm_numbers_sets_sliders(){
+			
+			//////alert('sets sliders');
+			
+            $(".slider").slider({
+                value: page_2_slider_point
+            });
+						
+		}		
+				
+			
+		function user_prediction(){
+			
+			// get *Individual* point off page 4
+			
+			var slider_divs = $( "#id4"  ).find( 'span.ui-slider-handle' );
+			
+			var slider_point = 0;
+			
+			var slider_points = [];
+			
+			$.each(slider_divs, function( index, value ) {
+				
+				slider_points.push(  Number( ( $(this)[0].style.left ).replace( "%" , "" ) ) / 25 );
+				
+				slider_point++;
+				
+			});			
+			
+			draw_prediction ( 3, slider_points ) ;
+			
+		}
+		
+				
+        /********* predictions end *********/
+		
+		
+		
+        /********* ADDING CLICKS start *********/
+		
+		
+		
+		
+		
+        $('.button_skip_to_end').click(function(){
+        
+            numberDormant = defaultDormant;
+			
+			var id = $(this).closest('.page').attr('id');
+			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); });
+			
+			//hide_all_info();
+				
+			var next_id = "#id5";
+							
+			page_showing = next_id;
+				
+			$(next_id).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			
+			$(".slider").slider({
+            	value: 2
+        	});
+			
+			initialiseCountdown();
+			
+            
+        });	
+	
+				
+		
+        $('.button_info').click(function(){
+			
+			numberDormant = defaultDormant;
+			
+			$("#id6").fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			
+			
+        });
+		
+        $('.button_close').click(function(){
+			
+			numberDormant = defaultDormant;
+			
+			$("#id6").fadeOut("slow", function() { $(this).addClass("hide"); });
+			
+        });	
+		
+        $('.button_next').click(function(){
+			
+			var id = $(this).parent().parent().attr('id');
+			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); });
+			
+			//hide_all_info();
+			
+			var page_number = ((Number(id.replace("id","")))+1);
+				
+			var next_id = '#id' + page_number ;
+			
+			if( id == 'id2' && page_number == 3 ) {
+				
+				////alert('first time');
+				algorithm_prediction();
+				algorithm_numbers_sets_sliders();			
+								
+			} 
+									
+			if( page_number == 4 ){
+				
+				//////alert('Look better?');
+				//algorithm_numbers_sets_sliders();			
+			}
+			
+			page_showing = next_id;
+			
+			$(next_id).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			
+			if(page_showing == '#id5'){
+				
+				initialiseCountdown();
+				
+			}
+			
+			numberDormant = defaultDormant;
+			
+			stopAnimation();
+			
+        });
+		
+        $('.button_back').click(function(){
+			
+			var id = $(this).parent().parent().attr('id');
+			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); });
+			
+			//hide_all_info();
+				
+			var next_id = '#id' + ((Number(id.replace("id","")))-1);
+			
+			page_showing = next_id;
+			
+			$( next_id ).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			
+			numberDormant = defaultDormant;
+			
+			//alert( 'back again' );
+			user_prediction();
+			
+			
+        });
+		
+        $('.button_restart').click(function(){
+			
+			
+			if(page_showing == '#id5'){
+				stopCountdown();
+			}			
+			
+			var id = $(this).closest('.page').attr('id');
+			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); });
+			
+			//hide_all_info();
+				
+			var next_id = "#id1";
+			
+			initialiseAnimation();
+				
+			page_showing = next_id;
+				
+			$(next_id).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			$('#id6').fadeOut("slow", function() { $(this).addClass("hide"); });					
+			
+			$(".slider").slider({
+				value: 2
+        	});
+			
+			
+        });	
+		
+        $('.button_remove').click(function(){
+            numberDormant = defaultDormant;
+            $(page_showing).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+            $('#id0').fadeOut("slow", function() { $(this).addClass("hide"); });
+            
+        });
+		
+		
+        /********* ADDING CLICKS end *********/
+		
+		
+		
+        /********* START *********/
+		
+		page_showing = '#id1';
+			
+		$('body').find(page_showing).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+		
+		initialiseDormant();
+			
+		initialiseAnimation();
+	
+			
+        </script>
+    </body>
+</html>
