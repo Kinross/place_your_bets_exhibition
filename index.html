@@ -537,8 +537,6 @@
             -ms-transform: rotate(-90deg);
             /* Opera */
             -o-transform: rotate(-90deg);
-            /* Internet Explorer */
-            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 			
         }
 		
@@ -563,8 +561,6 @@
             -ms-transform: rotate(90deg);
             /* Opera */
             -o-transform: rotate(90deg);
-            /* Internet Explorer */
-            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 			
         }
 		
@@ -594,6 +590,9 @@
 		
         <script src="assets/libraries/jquery-ui.js">
         </script>
+		
+        <script src="assets/libraries/jquery.ui.touch-punch.js">
+        </script>				
 		
         <script src="assets/libraries/jquery-ui-slider-pips.js">
         </script>
@@ -1235,7 +1234,7 @@
 			.slider("pips", {
 		        rest: "label",
 		        labels: ["","","","",""]
-			});
+			}).draggable();
 			
 			slider_number++;
 			
