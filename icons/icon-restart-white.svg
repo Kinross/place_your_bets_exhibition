@@ -2,16 +2,12 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="841.889px" height="595.281px" viewBox="0 0 841.889 595.281" enable-background="new 0 0 841.889 595.281"
-	 xml:space="preserve">
-<g>
-	<polyline fill="#C8F600" points="242.124,542.24 242.124,648.541 497.244,648.541 497.244,542.24 	"/>
-	<polyline fill="#C8F600" points="497.244,457.201 497.244,563.501 582.284,563.501 582.284,457.201 	"/>
-	<polyline fill="#C8F600" points="157.084,457.201 157.084,563.501 242.124,563.501 242.124,457.201 	"/>
-	<polyline fill="#C8F600" points="667.324,287.12 667.324,53.26 582.284,53.26 582.284,138.301 497.244,138.301 497.244,223.341 
-		412.204,223.341 412.204,287.12 	"/>
-	<polyline fill="#C8F600" points="497.244,117.04 497.244,53.26 242.124,53.26 242.124,117.04 	"/>
-	<polyline fill="#C8F600" points="242.124,202.08 242.124,138.301 157.084,138.301 157.084,202.08 	"/>
-	<polyline fill="#C8F600" points="178.345,223.341 72.044,223.341 72.044,478.461 178.345,478.461 	"/>
-</g>
+	 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
+<rect x="8" y="24" fill="#C8F600" width="12" height="4"/>
+<polyline fill="#C8F600" points="20,19 20,24 24,24 24,19 "/>
+<polyline fill="#C8F600" points="4,19 4,24 8,24 8,19 "/>
+<polyline fill="#C8F600" points="28,11 28,0 24,0 24,4 20,4 20,8 16,8 16,11 "/>
+<polyline fill="#C8F600" points="20,4 20,1 8,1 8,4 "/>
+<polyline fill="#C8F600" points="8,7 8,4 4,4 4,7 "/>
+<rect y="7" fill="#C8F600" width="4" height="12"/>
 </svg>
