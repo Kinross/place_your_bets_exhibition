@@ -50,6 +50,7 @@
 			padding:0;
 			margin:0;
 			font-weight:normal; 
+            letter-spacing: 1px;
 		}			
 			  
         .hide {
@@ -136,17 +137,19 @@
 		}
 		
 		
+		/* Bob change request: More shadow on slider */
+		
 		#id2 div.slider span.ui-slider-handle, div.slider span.ui-state-default, div.slider span.ui-corner-all, div.slider span.ui-state-active {
 			cursor: pointer;
 			/* http://www.cssmatic.com/box-shadow */
-			-webkit-box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
-			-moz-box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
-			box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);
+			-webkit-box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.2);
+			-moz-box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.2);
+			box-shadow: 3px 3px 10px 1px rgba(0,0,0,0.2);
 			width: 43px;
 			height: 43px;
 		}
 		
-		/* Bob change request:  taller slider recesses 12px */	
+		/* Bob change request: taller slider recesses 12px */	
 		.slider.ui-slider{
 			border-style: solid;
     		border-width: 1px;
@@ -170,7 +173,6 @@
 			background: #0F22FF;
 			border: #0F22FF;
             background-image:url(icons/icon-drag-white.svg);
-			
 		}
 		
 		.slider .ui-slider-handle {
@@ -545,10 +547,10 @@
 			
 			
 			
-        .RRR-back {
-        	
+		/* Bob change request: more letter spacing */		
+        .RRR-back , .RRR-forward {
+			
             position:absolute;
-            left:15%;
             top:400px;
 	
 			text-transform: uppercase;
@@ -556,7 +558,20 @@
 			text-align: center;
 			vertical-align:middle;
 			width:200px;
-			margin: -100;
+			margin: -100;		
+            letter-spacing: 4px;
+		
+		}
+		
+		/* Bob change request: more letter spacing */		
+		.nav > div > a {
+            letter-spacing: 2px;
+		}
+		
+		
+        .RRR-back {
+        	
+            left:15%;
 			
             /* Safari */
             -webkit-transform: rotate(-90deg);
@@ -571,16 +586,7 @@
 		
         .RRR-forward {
         	
-            position:absolute;
             right:15%;
-            top:400px;
-	
-			text-transform: uppercase;
-			font-size:34px;
-			text-align: center;
-			vertical-align:middle;
-			width:200px;
-			margin: -100;
 						
             /* Safari */
             -webkit-transform: rotate(90deg);
@@ -612,6 +618,19 @@
         #id1 h2 {
             letter-spacing: 2px;
         }
+		
+		
+		/* Bob change request: Dots in slider recesses should be more subtle colour  */
+        #id2 .slider .ui-slider-pip .ui-slider-line {
+			opacity: 0.5;
+        }
+		
+		/* Bob change request: Scale labels smaller and lighter */
+		.small-labels {
+			font-size:14px;
+			color:#595396;
+			color:#7873AA;
+		}	
 		 
         </style>
     </head>
@@ -775,7 +794,7 @@
 		"Salary" ,
 		"Diet" ,
 		"Taking risks" ,
-		"Disposable Income"
+		"Savings"
 		];			
 		
 		var page_3_data = set_up_page_data( headline_3 , intro_3 , next_3 , "" , "" , [] , headings_3 , [] , false , [] , "" , "" , skip_to_end_3 , "" , ""  );
@@ -795,10 +814,10 @@
 		"Salary" ,
 		"Diet" ,
 		"Taking risks" ,
-		"Disposable Income"
+		"Savings"
 		];
         
-        slider_4 = [ [ "Ferrero Rocher","Ferrari" ],[ "McDonalds","Body = temple" ],[ "Lion tamer","Accountant" ],[ "Credit card","Paid in cash" ] ];		
+        slider_4 = [ [ "Ferrero Rocher","Ferrari" ],[ "McDonalds","Body = temple" ],[ "Lion tamer","Accountant" ],[ "What savings account?","ISA fully loaded" ] ];		
 		
 
 		
@@ -863,11 +882,11 @@
 		],
         // Money management:
 		[
-		"So tight I only breathe in." ,
-		"A penny saved is a penny earned." ,
-		"Look after the pennies and the pounds will look after themselves." ,
+		"I spend it like it's going out of fashion." ,
 		"Spend it if you've got it." ,
-		"I can spend cash like it's going out of fashion." 
+		"Look after the pennies and the pounds will look after themselves." ,
+		"A penny saved is a penny earned." ,
+		"So tight I only breathe in." 
 		]];
         
 
