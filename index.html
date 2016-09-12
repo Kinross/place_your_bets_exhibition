@@ -79,7 +79,7 @@
 			background: #C8F600;
 			color: #1000D0;
 			color: #000;
-			padding:5px;
+			padding:0;
             letter-spacing: 1px;
 			
 		}
@@ -88,15 +88,23 @@
 		}
 		
 		#id5 h1 {
-			margin-top: 50px;
+			margin-top: 60px;
 		}
 		
 		#id6 h1 {
-			margin-bottom: 30px;
+			line-height: 1;
+			font-size: 60px;
+			margin-top: 10px;
+			margin-bottom: 45px;
 		}
+		
+		#id6  p {
+			line-height: 1.5;
+		}			
+
 				
 		.countdown {
-			padding-top: 80px;
+			padding-top: 95px;
 		}
 		
 		.screen_saver , .button , .countdown , .intro , p , h1 , h2 , h3 {
@@ -158,16 +166,27 @@
 			border-color: #18178A;
 		}
 		#id4 .slider.ui-slider{
-			border-color: #fff;
-		}				
+			border-color: rgba(200,200,200,0.2);
+		}	
+		
+		/* Bob change request: Inner shadow on slider recess */
+		#id4 .slider{
+		  box-shadow: inset 0px 0px 5px rgba(200,200,200,1);
+		}	
+
+			
 		
 		div.slider.ui-slider {
 			margin-top:30px;
 		}
 		
 		#id2 h1 {
-			padding-bottom:45px;
-		}	
+			padding-bottom:48px;
+		}
+		
+		.animations {
+			margin-top:30px;
+		}
 				
 		#id2 div.slider span.ui-slider-handle, div.slider span.ui-state-default, div.slider span.ui-corner-all, div.slider span.ui-state-active {
 			background: #0F22FF;
@@ -184,10 +203,13 @@
 			border: #fff;
             background-image:url(icons/icon-drag-blue.svg);
 		}
-				
+		
+		
+		/* Bob change request: Wider and taller slider recesses ( 600px width ) */
+		
 		#id2 .slider.ui-slider {
             background: #18178A;
-			margin: 25px 80px 42px 80px;
+			margin: 25px 30px 50px 30px;
 		}
 		
 		.slider.ui-slider {
@@ -200,7 +222,7 @@
 		}			
 		
 		#id0 .footer {
-			width:60%;
+			width:70%;
 			margin: auto;
 			float: none;
 			padding: 0 20%;
@@ -215,8 +237,10 @@
 			margin: auto;
 		}
 		
+		/* Bob change request: Button padding: 24 35 */
+		
 		.button_close {
-			width:120px;
+			width:135px;
 		}
 		
 		#id1 .button_next {
@@ -224,7 +248,7 @@
 		}					
 
 		#id2 .button_next {
-			width:260px;
+			width:270px;
 		}
 		
 		#id3 .footer  {
@@ -244,13 +268,23 @@
 		}
 		
 		#id4 .button_back {
-			width:300px;
+			width:306px;
 		}
 		
 		#id5 .footer .button_restart {
 			float: none;
-			width:340px;
+			width:368px;
 		}
+		
+		/* Bob change request: new button style */
+		#id5 .footer a.button {
+			color: #fff;
+			background: none;
+			border-style: solid;
+			border-width: 2px;
+			border-color: #fff;
+		}		
+		
 		
 		#id6 {
 			background:white;
@@ -307,10 +341,14 @@
 		
 		#id3 * , #id4 * {
 			color:#595396;
-		}		
+		}
 		
+				
+		/* Bob change request: Solid button is a lighter blue */
 		#id3 .button , #id4 .button {
 			background: #1000D0;
+			background: #411DFF;
+			
 			color: #fff;
 		}
 		
@@ -472,7 +510,7 @@
         }	
 		
 		#id1 h1 {
-			padding-top:285px;
+			padding-top:300px;
 			padding-bottom:0;
 		}
 		
@@ -551,7 +589,7 @@
         .RRR-back , .RRR-forward {
 			
             position:absolute;
-            top:400px;
+            top:465px;
 	
 			text-transform: uppercase;
 			font-size:34px;
@@ -627,7 +665,7 @@
 		
 		/* Bob change request: Scale labels smaller and lighter */
 		.small-labels {
-			font-size:14px;
+			font-size:15px;
 			color:#595396;
 			color:#7873AA;
 		}	
