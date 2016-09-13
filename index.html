@@ -131,12 +131,12 @@
 		
 		#id2 .button_restart , #id3 .button_restart , #id4 .button_restart {
 			position:absolute;
-            right:2%;
+            right:5%;
             top:10px;
 		}
 		.button_info {
 			position:absolute;
-            left:2%;
+            left:5%;
             top:10px;
 		}		
 		
@@ -408,14 +408,15 @@
 		
 	
 		
-		
+		/* Bob change request: gutter of 30px */
+		 
 		#id4 > .body > div , #id3 > .body > div  {
 			
-			width:42%;
-			height: 120px;
+			width:43%;
+			height: 130px;
 			float:right;
 			background:#fff;
-			margin: 0 2%;
+			margin: 0 1.5%;
 			margin-top:30px;
 			padding: 2%;
 						
@@ -480,15 +481,19 @@
 			
 		}	
 		
-		
+		/* Bob change request: circle stay solid throughout */
 		#id1 .circle {
+            position: absolute;
 			width: 250px;
 			height: 250px;
 			background: #151CD1;
 			border-radius: 200px;
             display:block;
             margin-left: auto;
-            margin-right: auto;				
+            margin-right: auto;
+			display: block;
+			left: 0;
+			right: 0;
 		}
 		
 		#id1 .intro {
@@ -499,6 +504,7 @@
 		#id1 .animation {
 			margin-top:0;
 			position:relative;
+			opacity:0;
 		}
 		
         #id1 .animation * {
@@ -646,7 +652,7 @@
 		
 		
 		.screen_saver {
-			margin-top:110px;
+			margin-top:135px;
 			margin-bottom:20px;
 			font-size:24px;
 		}
@@ -656,7 +662,6 @@
         #id1 h2 {
             letter-spacing: 2px;
         }
-		
 		
 		/* Bob change request: Dots in slider recesses should be more subtle colour  */
         #id2 .slider .ui-slider-pip .ui-slider-line {
@@ -668,7 +673,30 @@
 			font-size:15px;
 			color:#595396;
 			color:#7873AA;
-		}	
+		}
+		
+		#id3.page , #id4.page {
+            width: 92%;
+            padding:0 4%;
+		}
+
+		/* Bob change request: buttons have a defined width, so they are equal and aligned to the central gutter of 30px */
+		#id3 .footer , #id0 .footer {
+		    width: 87%;
+		    margin: auto;
+		    padding: 0 6.5%;
+			
+		    width: 89.5%;
+		    margin: auto;
+		    padding: 0 5.25%;			
+		}
+		#id3 .footer .button , #id0 .footer .button {
+		    width: 40.65%;
+			
+		    width: 40.9%;
+		}
+
+
 		 
         </style>
     </head>
@@ -974,10 +1002,12 @@
 					
 					content += '<div class="animations">';
 					
+					// Bob change request: circle stay solid throughout
+					content += '<div class="circle"></div>';
+					
 					for (var i = 0; i < data.animations.length; i++) {
 					
 						content += '<div class="animation">';
-							content += '<div class="circle"></div>';
 							content += '<img class="home_images" src="icons/icon-' + data.animations[i] + '.svg" >';
 							content += '<h2>' + data.animations[i] + '</h2>';
 							
