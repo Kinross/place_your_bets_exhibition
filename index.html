@@ -722,14 +722,8 @@
 			
 		var date_stamp = new Date().getTime();
 		
-		var edit_number = 0;
+		var user_next_click_point = 0;
 					
-			
-		/*
-		localStorage['id' + date_stamp + "_" + 'finish' ] = "1-2-4-2';
-		 */
-		
-			
 		var testing = false; 
 		//testing = true;
 		
@@ -1310,7 +1304,7 @@
 			numberAnimation = defaultAnimation;
 			
 			date_stamp = new Date().getTime();
-			edit_number = 0;
+			user_next_click_point = 0;
 			
             intervalAnimation = setInterval(function(){ 
                 timerAnimation()
@@ -1431,7 +1425,6 @@
 			
 			var submitting = "";
 			
-
 			
 			var slider_divs = $( "#id2"  ).find( 'span.ui-slider-handle' );
 			
@@ -1465,8 +1458,13 @@
 			
 			draw_prediction ( 3, [ page_2_slider_point , page_2_slider_point , page_2_slider_point , page_2_slider_point ])
 			
-			console.log('localStorage[id' + date_stamp  + 'submit' + ']=' + submitting);
-			localStorage['id' + date_stamp + 'submit' ] = "" + submitting;
+			console.log('localStorage[id' + date_stamp  + 'start' + user_next_click_point + ']=' + submitting);
+			localStorage['id' + date_stamp + 'start' + user_next_click_point ] = "" + submitting;
+			
+			user_next_click_point++;
+			
+			console.log('localStorage[id' + date_stamp  + 'prediction' + user_next_click_point + ']=' + "p" + page_2_slider_point + "p" + page_2_slider_point + "p" + page_2_slider_point + "p" + page_2_slider_point );
+			localStorage['id' + date_stamp + 'prediction' + user_next_click_point ] = "p" + page_2_slider_point + "p" + page_2_slider_point + "p" + page_2_slider_point + "p" + page_2_slider_point ;			
 			
 			
 		}
@@ -1489,7 +1487,7 @@
 			
 			
 			var submitting = "";
-			edit_number++;
+			user_next_click_point++;
 			
 			var slider_divs = $( "#id4"  ).find( 'span.ui-slider-handle' );
 			
@@ -1508,8 +1506,8 @@
 			});	
 					
 			
-			console.log('localStorage[id' + date_stamp  + localStorageType + edit_number + ']=' + submitting);
-			localStorage['id' + date_stamp + localStorageType + edit_number ] = "" + submitting;			
+			console.log('localStorage[id' + date_stamp  + localStorageType + user_next_click_point + ']=' + submitting);
+			localStorage['id' + date_stamp + localStorageType + user_next_click_point ] = "" + submitting;			
 			
 					
 			
