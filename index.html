@@ -699,12 +699,28 @@
 		#id3 .header , #id4 .header {
 			height: 35px;
 		}
+		
+		#deactivate {
+			width: 100%;
+			height: 100%;
+			background: none;
+			background: red;
+			background: none;
+			z-index: 21000;
+			display: block;
+			display: none;
+			display: block;
+			position:absolute;
+		}
 
 		 
         </style>
     </head>
     <body>
     	
+        <div id="deactivate">
+        </div>		
+		
         <div id="content">
         </div>
         
@@ -721,6 +737,8 @@
         </script>
 
 		<script>
+			
+			
 			
 			
 		var date_stamp = new Date().getTime();
@@ -740,7 +758,11 @@
 						
         if (testing == true) {
             defaultDormant = 3;
-        }       
+        }     
+		
+        if (testing == true) {
+            $('#deactivate').css( 'background', 'red' )
+        }   		 
 				
 		var defaultAnimation = 4;
 		
@@ -754,6 +776,15 @@
 			
 		var page_showing = '#id1';
         
+		
+        function fadeOut_(){
+			$('#deactivate').css( 'display', 'block' )
+		}
+
+        function fadeIn_(){
+			$('#deactivate').css( 'display', 'none' )
+		}		
+		
         function set_up_page_data( headline_ , intro_ , next_ , back_ , header_ , animations_ , questions_ , slider_ , clean_screen_ , countdown_ , restart_ , remove_ , skip_to_end_ , body_copy_ , close_ ){
         
             
@@ -861,7 +892,7 @@
         
 		next_3 = 'Refine predictions';
 		
-        skip_to_end_3 = "Lets finish, I like the predictions!";
+        skip_to_end_3 = "Let's finish, I like my predictions!";
 		
 		
         headings_3 = [
@@ -1204,9 +1235,11 @@
 			if(numberCountdown < 1){
 				stopCountdown();
 				
-				$(".page").fadeOut("slow", function() { $(this).addClass("hide"); });
+				fadeOut_();
 				
-				$("#id1").fadeIn("slow", function() {  $(this).removeClass("hide"); });	
+				$(".page").fadeOut("slow", function() { $(this).addClass("hide");  });
+				
+				$("#id1").fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });	
 				
 				page_showing = '#id1';
 				
@@ -1251,8 +1284,10 @@
 				if(page_showing != '#id1'){
 					
 					
-					$('#id0').fadeIn("slow", function() {  $(this).removeClass("hide"); });
-
+					$('#id0').fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });
+					
+					fadeOut_();
+					
 					$(page_showing).fadeOut("slow", function() { $(this).addClass("hide"); });
 					
 				}
@@ -1271,9 +1306,11 @@
 				
 				if(page_showing != '#id1'){
 				
+					fadeOut_();
+				
 					$('#id0').fadeOut("slow", function() { $(this).addClass("hide"); });	
 					$(".page").fadeOut("slow", function() { $(this).addClass("hide"); });
-					$("#id1").fadeIn("slow", function() {  $(this).removeClass("hide"); });	
+					$("#id1").fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });	
 					
 					page_showing = '#id1';					
 					
@@ -1535,6 +1572,9 @@
             numberDormant = defaultDormant;
 			
 			var id = $(this).closest('.page').attr('id');
+			
+			fadeOut_();
+			
 			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); });
 			
 			//hide_all_info();
@@ -1543,7 +1583,7 @@
 							
 			page_showing = next_id;
 				
-			$(next_id).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			$(next_id).fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });
 			
 			$(".slider").slider({
             	value: 2
@@ -1560,7 +1600,7 @@
 			
 			numberDormant = defaultDormant;
 			
-			$("#id6").fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			$("#id6").fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });
 			
 			
         });
@@ -1569,6 +1609,8 @@
 			
 			numberDormant = defaultDormant;
 			
+			fadeOut_();
+			
 			$("#id6").fadeOut("slow", function() { $(this).addClass("hide"); });
 			
         });	
@@ -1576,6 +1618,9 @@
         $('.button_next').click(function(){
 			
 			var id = $(this).parent().parent().attr('id');
+			
+			fadeOut_();
+			
             $("#" + id).fadeOut("slow", function(){
             
                 $(this).addClass("hide");
@@ -1616,7 +1661,8 @@
 			$(next_id).fadeIn("slow", function() {
 				
 				$(this).removeClass("hide"); 
-					
+				
+				fadeIn_();
 			
 			});
 			
@@ -1635,6 +1681,9 @@
         $('.button_back').click(function(){
 			
 			var id = $(this).parent().parent().attr('id');
+			
+			fadeOut_();
+			
 			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); });
 			
 			//hide_all_info();
@@ -1643,7 +1692,7 @@
 			
 			page_showing = next_id;
 			
-			$( next_id ).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			$( next_id ).fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });
 			
 			numberDormant = defaultDormant;
 			
@@ -1663,6 +1712,9 @@
 			}			
 			
 			var id = $(this).closest('.page').attr('id');
+			
+			fadeOut_();
+			
 			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); 			$(".slider").slider({
 				value: 2
         	}); });
@@ -1675,7 +1727,10 @@
 				
 			page_showing = next_id;
 				
-			$(next_id).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			$(next_id).fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });
+			
+			fadeOut_();
+			
 			$('#id6').fadeOut("slow", function() { $(this).addClass("hide"); });					
 			
 
@@ -1685,7 +1740,10 @@
 		
         $('.button_remove').click(function(){
             numberDormant = defaultDormant;
-            $(page_showing).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+            $(page_showing).fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });
+			
+			fadeOut_();
+			
             $('#id0').fadeOut("slow", function() { $(this).addClass("hide"); });
             
         });
@@ -1700,13 +1758,13 @@
 		page_showing = '#id1';
 		
 		
-		$('body').find(page_showing).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+		$('body').find(page_showing).fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });
 		
 		initialiseDormant();
 			
 		initialiseAnimation();
 		
-		
+		fadeIn_();
 			
         </script>
     </body>
