@@ -713,16 +713,29 @@
 			position:absolute;
 		}
 
+		#background {
+			width: 100%;
+			height: 100%;
+			background-image:url(assets/artwork/background.jpg);
+			z-index: 1;
+			display: block;
+		}
+
+
+
 		 
         </style>
     </head>
     <body>
     	
+			
         <div id="deactivate">
         </div>		
 		
         <div id="content">
         </div>
+		
+	
         
         <script src="assets/libraries/jquery-2.0.0.min.js">
         </script>
@@ -1166,6 +1179,10 @@
 						
 			$( "#content" ).append( "<div class='page hide' id='id" + id  + "'>" + content  +"</div>" );
 			
+			
+			
+			
+			
 		}
 		
 		var pageNumber = 0;
@@ -1196,8 +1213,7 @@
 		
 		draw_a_page(page_6_data, pageNumber);
 				
-		
-
+		$( "#content" ).append( '<div id="background"></div>');		
 
 		
         /********* ADDING WORDS end *********/
@@ -1619,6 +1635,20 @@
 			var id = $(this).parent().parent().attr('id');
 			
 			fadeOut_();
+			
+			
+			if ("id3" == id || "id4" == id ) {
+				
+				//alert('white');
+            	$('#background').css( 'display', 'none' );
+				
+			} else {
+				//alert('blue');
+            	$('#background').css( 'display', 'block' );
+			}
+			
+			
+			
 			
             $("#" + id).fadeOut("slow", function(){
             
