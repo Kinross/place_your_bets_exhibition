@@ -738,9 +738,7 @@
 
 		<script>
 			
-			
-			
-			
+						
 		var date_stamp = new Date().getTime();
 		
 		var user_next_click_point = 0;
@@ -761,7 +759,7 @@
         }     
 		
         if (testing == true) {
-            $('#deactivate').css( 'background', 'red' )
+            $('#deactivate').css( 'background', 'red' );
         }   		 
 				
 		var defaultAnimation = 4;
@@ -1599,8 +1597,8 @@
         $('.button_info').click(function(){
 			
 			numberDormant = defaultDormant;
-			
-			$("#id6").fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_(); });
+			fadeOut_();
+			$("#id6").fadeIn("slow", function() {  $(this).removeClass("hide"); fadeIn_();  });
 			
 			
         });
@@ -1611,7 +1609,7 @@
 			
 			fadeOut_();
 			
-			$("#id6").fadeOut("slow", function() { $(this).addClass("hide"); });
+			$("#id6").fadeOut("slow", function() { $(this).addClass("hide"); fadeIn_(); });
 			
         });	
 		
