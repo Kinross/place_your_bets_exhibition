@@ -17,17 +17,14 @@
 		
         <style>
 		
-		/*
-		
+		/* this is for the live site, code skips over this on the Github testing site */ 
 		@font-face {
 		    font-family: 'Px_Grotesk_Regular';
 		    src: url('fonts/Px_Grotesk_Regular.eot'), url('fonts/Px_Grotesk_Regular.ttf') format('truetype'), url('fonts/Px_Grotesk_Regular.svg') format('svg');
 		    font-weight: normal;
 		    font-style: normal;
 		}
-		
-		*/	
-		
+			
 		
 		* {
 			-moz-user-select: none; /* Firefox */
@@ -41,12 +38,10 @@
 			outline: none;
 		}
 		
-		
 		/* Bob change request: The main title is regular not bold */
 		*{
 			color:#fff;
-		    font-family:'Px_Grotesk_Regular';
-			font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; 
+			font-family: 'Px_Grotesk_Regular', Arial, 'Helvetica Neue', Helvetica, sans-serif; 
 			padding:0;
 			margin:0;
 			font-weight:normal; 
@@ -415,7 +410,7 @@
 		#id4 > .body > div , #id3 > .body > div  {
 			
 			width:43%;
-			height: 130px;
+			height: 150px;
 			float:right;
 			background:#fff;
 			margin: 0 1.5%;
@@ -617,7 +612,7 @@
 		
         .RRR-back {
         	
-            left:15%;
+            left:11%;
 			
             /* Safari */
             -webkit-transform: rotate(-90deg);
@@ -632,7 +627,7 @@
 		
         .RRR-forward {
         	
-            right:15%;
+            right:11%;
 						
             /* Safari */
             -webkit-transform: rotate(90deg);
@@ -698,6 +693,9 @@
 		    width: 40.9%;
 		}
 
+		#id3 .header , #id4 .header {
+			height: 35px;
+		}
 
 		 
         </style>
@@ -720,6 +718,17 @@
         </script>
 
 		<script>
+			
+			
+		var date_stamp = new Date().getTime();
+		
+		var edit_number = 0;
+					
+			
+		/*
+		localStorage['id' + date_stamp + "_" + 'finish' ] = "1-2-4-2';
+		 */
+		
 			
 		var testing = false; 
 		//testing = true;
@@ -1181,6 +1190,9 @@
 		
         function initialiseCountdown(){
 			numberCountdown = defaultCountdown;
+			
+			user_prediction('finish');
+			
             intervalCountdown = setInterval(function(){ 
                 timerCountdown()
             }, 1000);
@@ -1296,6 +1308,10 @@
 		
         function initialiseAnimation(){
 			numberAnimation = defaultAnimation;
+			
+			date_stamp = new Date().getTime();
+			edit_number = 0;
+			
             intervalAnimation = setInterval(function(){ 
                 timerAnimation()
             }, 1000);
@@ -1412,6 +1428,11 @@
 			
 			// get *average* point off page 2
 			
+			
+			var submitting = "";
+			
+
+			
 			var slider_divs = $( "#id2"  ).find( 'span.ui-slider-handle' );
 			
 			page_2_slider_point = 0;
@@ -1422,6 +1443,9 @@
 						
 			
 			$.each(slider_divs, function( index, value ) {
+				
+				
+				submitting += "p" + (  Number( ( $(this)[0].style.left ).replace( "%" , "" ) ) / 25 );
 				
 				if(negative_question[iteration]){
 					
@@ -1441,6 +1465,10 @@
 			
 			draw_prediction ( 3, [ page_2_slider_point , page_2_slider_point , page_2_slider_point , page_2_slider_point ])
 			
+			console.log('localStorage[id' + date_stamp  + 'submit' + ']=' + submitting);
+			localStorage['id' + date_stamp + 'submit' ] = "" + submitting;
+			
+			
 		}
 		
 		
@@ -1455,9 +1483,13 @@
 		}		
 				
 			
-		function user_prediction(){
+		function user_prediction(localStorageType){
 			
 			// get *Individual* point off page 4
+			
+			
+			var submitting = "";
+			edit_number++;
 			
 			var slider_divs = $( "#id4"  ).find( 'span.ui-slider-handle' );
 			
@@ -1467,13 +1499,22 @@
 			
 			$.each(slider_divs, function( index, value ) {
 				
+				submitting += "p" + (  Number( ( $(this)[0].style.left ).replace( "%" , "" ) ) / 25 ) ;
+				
 				slider_points.push(  Number( ( $(this)[0].style.left ).replace( "%" , "" ) ) / 25 );
 				
 				slider_point++;
 				
-			});			
+			});	
+					
 			
-			draw_prediction ( 3, slider_points ) ;
+			console.log('localStorage[id' + date_stamp  + localStorageType + edit_number + ']=' + submitting);
+			localStorage['id' + date_stamp + localStorageType + edit_number ] = "" + submitting;			
+			
+					
+			
+			return slider_points;
+			
 			
 		}
 		
@@ -1588,7 +1629,9 @@
 			numberDormant = defaultDormant;
 			
 			//alert( 'back again' );
-			user_prediction();
+			
+			draw_prediction ( 3, user_prediction('edit') ) ;
+			
 			
 			
         });
