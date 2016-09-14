@@ -1573,7 +1573,20 @@
         $('.button_next').click(function(){
 			
 			var id = $(this).parent().parent().attr('id');
-			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); });
+            $("#" + id).fadeOut("slow", function(){
+            
+                $(this).addClass("hide");
+                
+                if ("#" + id == '#id2') {
+                
+                    //alert('first time');
+                    //algorithm_prediction();
+                    algorithm_numbers_sets_sliders();
+                    
+                }
+                
+                
+            });
 			
 			//hide_all_info();
 			
@@ -1585,7 +1598,7 @@
 				
 				////alert('first time');
 				algorithm_prediction();
-				algorithm_numbers_sets_sliders();			
+				//algorithm_numbers_sets_sliders();			
 								
 			} 
 									
@@ -1597,7 +1610,12 @@
 			
 			page_showing = next_id;
 			
-			$(next_id).fadeIn("slow", function() {  $(this).removeClass("hide"); });
+			$(next_id).fadeIn("slow", function() {
+				
+				$(this).removeClass("hide"); 
+					
+			
+			});
 			
 			if(page_showing == '#id5'){
 				
@@ -1642,7 +1660,9 @@
 			}			
 			
 			var id = $(this).closest('.page').attr('id');
-			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); });
+			$("#" + id).fadeOut("slow", function() { $(this).addClass("hide"); 			$(".slider").slider({
+				value: 2
+        	}); });
 			
 			//hide_all_info();
 				
@@ -1655,9 +1675,7 @@
 			$(next_id).fadeIn("slow", function() {  $(this).removeClass("hide"); });
 			$('#id6').fadeOut("slow", function() { $(this).addClass("hide"); });					
 			
-			$(".slider").slider({
-				value: 2
-        	});
+
 			
 			
         });	
