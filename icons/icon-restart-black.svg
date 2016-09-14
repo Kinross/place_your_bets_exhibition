@@ -3,11 +3,11 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
-<rect x="8" y="24" fill="#1000D0" width="12" height="4"/>
-<polyline fill="#1000D0" points="20,19 20,24 24,24 24,19 "/>
-<polyline fill="#1000D0" points="4,19 4,24 8,24 8,19 "/>
-<polyline fill="#1000D0" points="28,11 28,0 24,0 24,4 20,4 20,8 16,8 16,11 "/>
-<polyline fill="#1000D0" points="20,4 20,1 8,1 8,4 "/>
-<polyline fill="#1000D0" points="8,7 8,4 4,4 4,7 "/>
-<rect y="7" fill="#1000D0" width="4" height="12"/>
+<rect x="8" y="24" fill="#411DFF" width="12" height="4"/>
+<polyline fill="#411DFF" points="20,20 20,24 24,24 24,20 "/>
+<polyline fill="#411DFF" points="4,20 4,24 8,24 8,20 "/>
+<polyline fill="#411DFF" points="28,11.939 28,0 24,0 24,4 20,4 20,8 16,8 16,11.939 "/>
+<polyline fill="#411DFF" points="20,4 20,0 8,0 8,4 "/>
+<polyline fill="#411DFF" points="8,8 8,4 4,4 4,8 "/>
+<rect y="8" fill="#411DFF" width="4" height="12"/>
 </svg>
