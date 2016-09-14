@@ -1255,7 +1255,6 @@
         
         function stopCountdown(){ 
             clearInterval(intervalCountdown);
-			$('#id5').find('.countdown').text( page_5_data.countdown[0] + defaultCountdown + page_5_data.countdown[1] ); 
 			
         }
 		
@@ -1376,6 +1375,8 @@
         
         function stopAnimation(){ 
             clearInterval(intervalAnimation);
+			
+			$('#id5').find('.countdown').text( page_5_data.countdown[0] + defaultCountdown + page_5_data.countdown[1] ); 
         }
 		
 				
